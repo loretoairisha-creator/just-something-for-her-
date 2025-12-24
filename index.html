@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Buko❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('photo.png') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* vignette */
+body::after {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle, transparent 60%, rgba(0,0,0,0.55));
+  z-index:1;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  position:relative;
+  z-index:2;
+}
+
+.card {
+  background:rgba(255,255,255,0.16);
+  border-radius:26px;
+  padding:32px;
+  max-width:560px;
+  width:100%;
+  backdrop-filter:blur(6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.45);
+  transition:box-shadow 0.4s ease;
+}
+
+.card.pulse {
+  animation: heartbeat 2.4s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { box-shadow:0 20px 40px rgba(255,80,80,0.35); }
+  50% { box-shadow:0 25px 60px rgba(255,80,80,0.65); }
+}
+
+/* ===== TEXT ===== */
+h1 { font-size:3rem; margin-bottom:10px; }
+h2 { font-weight:300; margin-bottom:26px; }
+
+.heart {
+  font-size:2.6rem;
+  animation:beat 1.2s infinite;
+  cursor:pointer;
+}
+
+@keyframes beat {
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.25);}
+}
+
+button {
+  margin:10px auto;
+  padding:14px 26px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#b30000;
+  font-weight:bold;
+  cursor:pointer;
+  display:block;
+  width:100%;
+  max-width:260px;
+}
+
+/* ===== LETTER ===== */
+.hidden-message {
+  display:none;
+  margin-top:30px;
+  text-align:left;
+  font-family:'Patrick Hand', cursive;
+  font-size:1.25rem;
+  line-height:1.9;
+  animation:fadeIn 1.8s ease;
+  text-shadow:0 0 12px rgba(255,180,180,0.35);
+}
+
+.signature {
+  display:none;
+  margin-top:30px;
+  text-align:right;
+  font-family:'Patrick Hand', cursive;
+  font-size:1.4rem;
+  animation:fadeIn 2.5s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* ===== 🌹 RED ROSE PETALS ===== */
+.petal {
+  position:fixed;
+  top:-10%;
+  width:22px;
+  height:32px;
+  background:radial-gradient(circle at 30% 20%, #ff4d4d, #7a0000);
+  border-radius:60% 60% 60% 60%;
+  opacity:0.95;
+  animation:petalFall linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+
+.petal::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:inherit;
+  border-radius:inherit;
+  transform:rotate(-25deg);
+}
+
+@keyframes petalFall {
+  0% {transform:translateY(0) rotate(0deg);}
+  50% {transform:translateY(60vh) rotate(220deg) translateX(80px);}
+  100% {transform:translateY(120vh) rotate(420deg) translateX(-80px);}
+}
+
+/* ===== ❄️ SNOW ===== */
+.snow {
+  position:fixed;
+  top:-10%;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  opacity:0.7;
+  animation:snowFall linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+
+@keyframes snowFall {
+  from {transform:translateY(0);}
+  to {transform:translateY(120vh);}
+}
+
+/* ===== 🎄 CHRISTMAS LIGHTS ===== */
+.lights {
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-around;
+  z-index:2;
+}
+
+.bulb {
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:red;
+  animation:blink 2s infinite;
+}
+
+.bulb:nth-child(2){background:green; animation-delay:0.5s;}
+.bulb:nth-child(3){background:gold; animation-delay:1s;}
+.bulb:nth-child(4){background:blue; animation-delay:1.5s;}
+
+@keyframes blink {
+  0%,100%{opacity:0.4;}
+  50%{opacity:1;}
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width:600px){
+  h1{font-size:2.2rem;}
+  h2{font-size:1rem;}
+  .card{padding:24px;}
+  .hidden-message{font-size:1.1rem;}
+  body{background-attachment:scroll;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎄 LIGHTS -->
+<div class="lights">
+  <div class="bulb"></div><div class="bulb"></div>
+  <div class="bulb"></div><div class="bulb"></div>
+</div>
+
+<!-- 🌹 PETALS -->
+<div class="petal" style="left:5%; animation-duration:15s;"></div>
+<div class="petal" style="left:25%; animation-duration:18s;"></div>
+<div class="petal" style="left:45%; animation-duration:16s;"></div>
+<div class="petal" style="left:65%; animation-duration:20s;"></div>
+<div class="petal" style="left:85%; animation-duration:17s;"></div>
+
+<!-- ❄️ SNOW -->
+<div class="snow" style="left:10%; animation-duration:14s;"></div>
+<div class="snow" style="left:30%; animation-duration:18s;"></div>
+<div class="snow" style="left:50%; animation-duration:16s;"></div>
+<div class="snow" style="left:70%; animation-duration:20s;"></div>
+<div class="snow" style="left:90%; animation-duration:22s;"></div>
+
+<audio id="bgMusic" src="paninindigan-kita.mp3"></audio>
+
+<div class="container">
+  <div class="card">
+    <h1>Merry Christmas, My Buko 🎄</h1>
+    <h2>You make my life brighter than Christmas</h2>
+
+    <div class="heart" onclick="showLove()">❤️</div>
+
+    <button onclick="revealMessage()">Click for a Surprise 🎁</button>
+    <button onclick="toggleMusic()">Play Music 🎵</button>
+
+    <div id="message" class="hidden-message">
+      Merry Christmas Buhay ko,<br><br>
+
+      Astig, ’noh? Sana napangiti ka or napawow kahit konti hehe. I know this website isn’t the most impressive thing in the world, but I hope you can feel how much effort, thought, and love I poured into making this just for you. <br><br>
+
+      You might be wondering why I went through all this—why gumawa pa ako ng website when I could’ve just sent you a simple letter. The truth is, since nadelay yung supposed gift ko sa’yo and we can’t really see each other right now, I told myself that you can never spend Christmas without me giving you something that shows how much you mean to me. This wasn’t even my original plan, and honestly, it’s really not much—but I hope you know, it came genuinely from my heart. <br><br>
+
+      Thank you for loving me the way you do—with patience, understanding, and a heart that always feels like home. Thank you for constantly choosing me, I am honored that you do. Thank you for never judging me, even when I bring up the most random, weird, or confusing topics. Thank you for always being willing to teach me—from the simplest things to the most complicated ones I struggle to understand. Thank you for listening to me, even when I can’t find the right words to explain myself properly. <br><br>
+
+      Thank you for constantly reassuring me, even when pare-parehas lang yung pinagseselosan ko and when my overthinking gets the best of me. You never made me feel like a burden. Instead, you made me feel heard, valued, and loved. In every happy moment I experience, I always find myself stopping and thinking, “I hope she’s just as happy as I am right now.” <br><br>
+
+      You are my comfort on my hardest days and my greatest joy on the good ones. Being with you makes even the simplest moments feel special, meaningful, and worth remembering. That kind of love is rare—and I promise I will never take it for granted. <br><br>
+
+      This season is about love, and you are the love I thank God for every single day. I hope this Christmas fills your heart with the same warmth, peace, and happiness that you bring into mine. No matter where life takes us, no matter how hard things get, I promise to keep choosing you—to support you, stay loyal to you, and love you with everything I have and in the best ways I know. <br><br> 
+
+      Merry Christmas, buhay ko. You are my favorite blessing—today, tomorrow, and always.💖🎄
+    </div>
+
+    <div id="signature" class="signature">
+      — Yours truly, HanHan 💖
+    </div>
+  </div>
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+const card = document.querySelector(".card");
+
+document.body.addEventListener("click",()=>{
+  music.play().then(()=>music.pause()).catch(()=>{});
+},{once:true});
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+    card.classList.add("pulse");
+  } else {
+    music.pause();
+    card.classList.remove("pulse");
+  }
+}
+
+function revealMessage(){
+  document.getElementById("message").style.display="block";
+  document.getElementById("signature").style.display="block";
+}
+
+function showLove(){
+  alert("Namimisskapo, Ay! Namamasko pala hehe. Thank you for making my days feel warmer, hon. Have a Merry Christmas! ❤️");
+}
+</script>
+
+</body>
+</html>
